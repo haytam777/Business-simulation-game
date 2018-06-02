@@ -1,3 +1,16 @@
+<?php
+
+require '..\class\App.php';
+App::loadAuth();
+$app = App::getInstance();
+$db = $app->getDB();
+session_start();
+
+$session = Session::getSession($db, $_GET['p']);
+$idjour = $session->getJourCourant();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +44,7 @@
 <![endif]-->
 </head>
 
-<body class="fix-header fix-sidebar">
+<body class="fix-header fix-sidebar" onload="setInterval('incs()', 1000)">
     <!-- Preloader - style you can find in spinners.css -->
    
     <!-- Main wrapper  -->
@@ -290,7 +303,13 @@
                                         <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                                     </div>
                                     <div class="media-body media-text-right">
-                                        <h2>25</h2>
+                                        <h2 id="carb">0</h2>
+                                        <?php
+                                            $now = time();
+                                            $start = mktime(0, 0, 0, 1, 24, 2007);
+                                            $carbonsaving =(0);
+                                            $format = round($carbonsaving, 2);
+                                        ?>
                                         <p class="m-b-0">Paieront-ils</p>
                                     </div>
                                 </div>
@@ -303,9 +322,10 @@
                                         <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                                     </div>
                                     <div class="media-body media-text-right">
-                                        <h2>25</h2>
-                                        <p class="m-b-0">Paieront-ils</p>
+                                        <h1 id="nomjour">Jeudi</h1>
+                                        <h2 id="idjour" onchange="myFunction()"><?= $idjour; ?></h2>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -579,6 +599,73 @@
     <script src="../js/lib/owl-carousel/owl.carousel.min.js"></script>
     <script src="../js/lib/owl-carousel/owl.carousel-init.js"></script>
     <script src="../js/scripts.js"></script>
+
+    <script type="text/javascript">
+        // we need to import our server side variable into javascript to let it increment live
+        var car = <?php print($format); ?>;
+        var rou
+        var vendredi ="Vendredi"
+        var idjour = parseInt(document.getElementById("idjour").innerHTML) 
+        function incs(){
+        car = car + 1;
+        rou = Math.round(car*100)/100
+        
+        switch (idjour%7){
+            case 1 : document.getElementById("nomjour").innerHTML="Jeudi"; break;
+            case 2 : document.getElementById("nomjour").innerHTML="Vendredi"; break;
+            case 3 : document.getElementById("nomjour").innerHTML="Samedi"; break;
+            case 4 : document.getElementById("nomjour").innerHTML="Dimanche"; break;
+            case 5 : document.getElementById("nomjour").innerHTML="Lundi"; break;
+            case 6 : document.getElementById("nomjour").innerHTML="Mardi"; break;
+            case 0 : document.getElementById("nomjour").innerHTML="Mercredi"; break;
+            
+
+        }
+            if(rou==10){
+
+                <?php $session->updateJourCourant($db, $idjour); ?>      
+                document.getElementById("idjour").innerHTML = idjour + 1;
+
+                if (document.getElementById("nomjour").innerHTML == 'Jeudi'){
+                    document.getElementById("nomjour").innerHTML = "Vendredi";
+                }
+                else if (document.getElementById("nomjour").innerHTML == "Vendredi"){
+                    document.getElementById("nomjour").innerHTML="Samedi";
+                }
+                else if (document.getElementById("nomjour").innerHTML == "Samedi"){
+                    document.getElementById("nomjour").innerHTML="Dimanche";
+                }
+                else  if (document.getElementById("nomjour").innerHTML == "Dimanche"){
+                    document.getElementById("nomjour").innerHTML="Lundi";
+                }
+                else if (document.getElementById("nomjour").innerHTML == "Lundi"){
+                    document.getElementById("nomjour").innerHTML="Mardi";
+                }
+                else if (document.getElementById("nomjour").innerHTML == "Mardi"){
+                    document.getElementById("nomjour").innerHTML="Mercredi";
+                }
+                else if (document.getElementById("nomjour").innerHTML == "Mercredi"){
+                    document.getElementById("nomjour").innerHTML="Jeudi";
+                }
+            }
+        document.getElementById("carb").innerHTML=rou;
+        
+        }
+
+        function myFunction() {
+            var oldId = parseInt(<?= $idjour ?>)
+            var newId = parseInt(document.getElementById("idjour").innerHTML)
+
+            if (newId == oldId + 1){
+                 window.location.reload(true);
+            }
+        }
+
+     
+        setInterval(myFunction,1000);
+        
+
+    </script>
     <!-- scripit init-->
 
     <style>
@@ -588,7 +675,6 @@
             width: 100%;
             border: 1px solid #ddd;
         }
-
         th, td {
             text-align: left;
             padding: 8px;
