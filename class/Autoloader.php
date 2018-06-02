@@ -17,7 +17,7 @@ class Autoloader{
     }
 
     static function autoloadAuth($class_name){
-        $path = "C:/users/admin/Desktop/elaadmin-master/class/" . $class_name . '.php';
+        $path = "C:/users/admin/Desktop/test/class/" . $class_name . '.php';
  //       $path = str_replace('/','\\',$path);
         require $path;
     }
