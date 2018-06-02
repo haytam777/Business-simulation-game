@@ -64,6 +64,7 @@ class Session{
    public static function getSession($db,$id){
        $session = $db->prepare('select * from session where id = ?',[$id],__CLASS__,true);
        $session->getListJoueur($db);
+       $session->setJourCourant($session->id_jour);
        return $session;
    }
 
@@ -75,6 +76,12 @@ class Session{
             return false;
        }
    }
+
+   public function updateJourCourant($db, $i){
+      $db->action('update session set id_jour = ? where id = ?', [$i +1 , $this->id]);
+   }
+
+
 
    
 
