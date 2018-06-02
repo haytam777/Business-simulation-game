@@ -33,6 +33,10 @@ class Session{
        return 'index.php?p=joinsession&id=' . $this->id;
    }
 
+   public function getStartURL(){
+       return 'index.php?p=startsession&id=' . $this->id;
+   }
+
    
    public function getListJoueur($db){
        $res = $db->query('select * from session where id ='.$this->id,null,true);
@@ -72,6 +76,7 @@ class Session{
        }
    }
 
+   
 
 
 }

@@ -6,7 +6,7 @@
 				<h2><?= $session->mdp; ?> </h2>
 				    <p><?= var_dump($session->getListJoueur($db)); ?></p>
 				    <p><?= $joueur->id; ?></p>
-
+					<input type="button" value="Commencer la partie" onclick="window.location.href='<?= $session->getStartURL() ?>'" />
 			</div>
 		</div>
 	</div>

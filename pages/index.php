@@ -53,6 +53,13 @@ if($p === 'home'){
     $session = Session::getSession($db,$idSession);
     require 'front/session.php';
 }
+else if($p==='startsession'){
+    $idSession = $_GET['id'];
+    $session = Session::getSession($db,$idSession);
+    if($session->checkJoined($joueur->id))
+        header("Location: ../jeu/jeu.php?p=".$idSession);
+    else header("Location:index.php");
+}
 
 /*else if($p === 'deco'){
     session_destroy();
