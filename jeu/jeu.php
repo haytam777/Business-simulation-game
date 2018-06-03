@@ -78,7 +78,7 @@ switch ($idjour%7) {
     <?php require('ade_modal.html') ?>
 
     <!--MP MODAL HTML !-->
-    <?php require('MP_modal.html') ?>
+    <?php require('Clara_modal.html') ?>
 
     <!-- Main wrapper  -->
     <div id="main-wrapper">
@@ -377,6 +377,11 @@ switch ($idjour%7) {
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-primary">Dashboard</h3> </div>
+                    <ul class="dropdown-menu">
+                          <li><a href="#">HTML</a></li>
+                          <li><a href="#">CSS</a></li>
+                          <li><a href="#">JavaScript</a></li>
+                        </ul>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>

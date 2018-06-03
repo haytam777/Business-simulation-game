@@ -1,0 +1,60 @@
+<!-- MP MODAL -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div id="add_data_ModalMP" class="modal">
+
+<div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Bienvenu chez Harry</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class ="modal-body">
+                    <img src="../images/catalogue.png">
+                    <form method="post" id="insertMP_form">
+                        <select id="selected">
+                          <option id="Restaurant" value="150">Restaurant</option>
+                          <option id="Nouriture" value="50">Nouriture</option>
+                          <option id="Lunettes" value="300">Lunettes</option>
+                          <option id="Repas"  value="100">Repas</option>
+                          <option id="Shopping" value="400">Shopping</option>
+                          <option id="Robe" value="250">Robe</option>
+                          <option id="Telephone" value="600">Telephone</option>
+                          <option id="Vetement" value="250">Vetement</option>
+                          <option id="Demenagement" value="1000">Demenagement</option>
+                          <option id="Cake" value="20">Cake</option>
+                          <option id="Calculatrice" value="50">Calculatrice</option>
+                          <option id="Rouge" value="100">Rouge</option>
+                          <option id="Abonnement" value="200">Abonnement</option>
+                          <option id="Talons" value="160">Talons</option>
+                          <option id="Glace" value="10">Glace</option>
+                          <option id="Cadeau" value="150">Cadeau</option>
+                        </select>
+                        <input type="quantite" id="quantite">
+                        <h2 id="res"></h2>
+                        <input type="submit" name="insertMP" id="insertMP" value="Valider" class="btn btn-success"/>
+                    </form>
+                    <script>
+                        $(document).ready(function(){
+                            $("select").change(function(){
+                                var id = $(this).children(":selected").attr("id");
+                                //alert(id);
+                               var q = (document.getElementById("quantite").value);
+                               if (q==0) q++;
+                                document.getElementById("res").innerHTML = (document.getElementById("selected").value)*q;
+                            });
+                        });
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<style type="text/css">img {
+    width: 100%;
+    height: auto;
+}</style>
+
+ 
