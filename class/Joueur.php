@@ -56,7 +56,7 @@ class Joueur{
     }
 
     public function setADEtoDB($db){
-        $req = $this->dbb->action('update ADE set a=? , d=? , e=? where id_joueur=?', [$this->a,$this->d,$this->e,$this->id]);
+        $req = $db->action('update ADE set a=? , d=? , e=? where id_joueur=?', [$this->a,$this->d,$this->e,$this->id]);
     }
 
     

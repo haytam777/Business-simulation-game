@@ -46,7 +46,10 @@ $idjour = $session->getJourCourant();
 
 <body class="fix-header fix-sidebar" onload="setInterval('incs()', 1000)">
     <!-- Preloader - style you can find in spinners.css -->
-   
+    
+    <!--ADE MODAL HTML !-->
+    <?php require('ade_modal.html') ?>
+
     <!-- Main wrapper  -->
     <div id="main-wrapper">
         <!-- header header  -->
@@ -104,6 +107,7 @@ $idjour = $session->getJourCourant();
                                                         <span>
                                                         <img src="../images/Caisse.png" style="width:80px;height:80px;">
                                                         </span>
+                                                        
                                                     </div>
                                                     <div class="media-body media-text-right">
                                                         <h2 style="font-size: 20px">Caisse</h2>
@@ -533,6 +537,9 @@ $idjour = $session->getJourCourant();
                                     <span>
                                     <img src="../images/Caisse.png" style="width:80px;height:80px;">
                                     </span>
+                                    <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class"btn btn-warning">
+                                                        click
+                                                        </button>
                                 </div>
                                 <div class="media-body media-text-right">
                                     <h2 style="font-size: 20px">Caisse</h2>
@@ -664,9 +671,11 @@ $idjour = $session->getJourCourant();
      
         setInterval(myFunction,1000);
         
-
     </script>
-    <!-- scripit init-->
+    
+    <!--MODAL ADE SCRIPT -->
+    <script src="ade_modal.js"></script>
+
 
     <style>
         table {
