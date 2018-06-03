@@ -9,6 +9,33 @@ session_start();
 $session = Session::getSession($db, $_GET['p']);
 $idjour = $session->getJourCourant();
 
+$joueur = new Joueur();
+$joueur->getJoueurById($_SESSION['auth'],$db);
+$joueur->getADEfromDB($db);
+
+
+$ctrlSally = "";
+$ctrlBanque = "";
+$ctrlHarry = "";
+$ctrlClara = "";
+$ctrlCartes = "";
+$ctrlRoue = "";
+$ctrlADE = "";
+$ctrlAchat = "";
+
+switch ($idjour%7) {
+    case 1 :  break;
+    case 2 : $ctrlADE = "data-toggle=\"modal\" data-target=\"#add_data_Modal\"" ; break;
+    case 3 : break;
+    case 4 : break;
+    case 5 : $ctrlHarry = "data-toggle=\"modal\" data-target=\"#add_data_ModalMP\"" ; break;
+    case 6 :  break;
+    case 0 :  break;
+}
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -50,6 +77,9 @@ $idjour = $session->getJourCourant();
     <!--ADE MODAL HTML !-->
     <?php require('ade_modal.html') ?>
 
+    <!--MP MODAL HTML !-->
+    <?php require('MP_modal.html') ?>
+
     <!-- Main wrapper  -->
     <div id="main-wrapper">
         <!-- header header  -->
@@ -70,6 +100,7 @@ $idjour = $session->getJourCourant();
                     <!-- toggle and nav items -->
                     <ul class="navbar-nav mr-auto mt-md-0">
                         <!-- This is  -->
+
                         
                         <!-- Messages -->
                         <li class="nav-item dropdown mega-dropdown"> <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-th-large"></i></a>
@@ -94,7 +125,7 @@ $idjour = $session->getJourCourant();
                                                     <div class="media-body media-text-right">
                                                         <h2 style="font-size: 20px">Caricatures</h2>
                                                         <p class="m-b-1" style="text-align: right;"> Personnages</p>
-                                                        
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -105,7 +136,7 @@ $idjour = $session->getJourCourant();
                                                 <div class="media">
                                                     <div>
                                                         <span>
-                                                        <img src="../images/Caisse.png" style="width:80px;height:80px;">
+                                                        <img <?= $ctrlADE  ?>  src="../images/Caisse.png" style="width:80px;height:80px;">
                                                         </span>
                                                         
                                                     </div>
@@ -259,38 +290,38 @@ $idjour = $session->getJourCourant();
                                     <div >
                                         <table>
                                             <tr>
-                                              <th>Informations </th>
-                                              <th>personnelles</th>
+                                              <th>Mes infos </th>
+                                              <th></th>
                                      
 
                                             </tr>
                                             <tr>
-                                              <td>Nom</td>
-                                              <td>infos..</td>
+                                              <td>Pseudo</td>
+                                              <td><?= $joueur->user; ?></td>
                                             
                                            
                                             </tr>
                                             <tr>
-                                              <td>Prenom</td>
-                                              <td>infos..</td>
+                                              <td>Mat.Première</td>
+                                              <td><?= $joueur->mp."pièces"; ?></td>
                                              
                                               
                                             </tr>
                                             <tr>
-                                              <td>Caisse</td>
-                                              <td>infos..</td>
+                                              <td>Affaires</td>
+                                              <td><?= $joueur->a; ?></td>
                                              
                                               
                                             </tr>
                                             <tr>
-                                              <td>Banque</td>
-                                              <td>infos..</td>
+                                              <td>Dépenses</td>
+                                              <td><?= $joueur->d; ?></td>
                                              
                                               
                                             </tr>
                                             <tr>
-                                              <td>ETC...</td>
-                                              <td>infos..</td>
+                                              <td>Epargne</td>
+                                              <td><?= $joueur->e; ?></td>
                                               
                                               
                                             </tr>
@@ -394,13 +425,14 @@ $idjour = $session->getJourCourant();
                             <div class="media">
                                 <div>
                                     <span>
-                                    <img src="../images/Harry.png" style="width:80px;height:80px;">
+                                    <img  <?= $ctrlHarry  ?>   src="../images/Harry.png" style="width:80px;height:80px;">
                                     </span>
                                 </div>
                                 <div class="media-body media-text-right">
                                     <h2 style="font-size: 21px">Harry</h2>
                                     <p class="m-b-1">grossiste</p>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -535,11 +567,8 @@ $idjour = $session->getJourCourant();
                             <div class="media">
                                 <div>
                                     <span>
-                                    <img src="../images/Caisse.png" style="width:80px;height:80px;">
+                                    <img <?= $ctrlADE ?>  src="../images/Caisse.png" style="width:80px;height:80px;">
                                     </span>
-                                    <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class"btn btn-warning">
-                                                        click
-                                                        </button>
                                 </div>
                                 <div class="media-body media-text-right">
                                     <h2 style="font-size: 20px">Caisse</h2>
@@ -628,7 +657,7 @@ $idjour = $session->getJourCourant();
             
 
         }
-            if(rou==10){
+            if(rou==100){
 
                 <?php $session->updateJourCourant($db, $idjour); ?>      
                 document.getElementById("idjour").innerHTML = idjour + 1;
@@ -675,6 +704,9 @@ $idjour = $session->getJourCourant();
     
     <!--MODAL ADE SCRIPT -->
     <script src="ade_modal.js"></script>
+
+    <!--MODAL MP SCRIPT -->
+    <script src="MP_modal.js"></script>
 
 
     <style>

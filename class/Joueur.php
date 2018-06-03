@@ -10,6 +10,7 @@ class Joueur{
     public $a = 0;
     public $d = 0;
     public $e = 0;
+    public $mp = 0;
 
     public function __construct(){
         //$this->dbb = $db;
@@ -37,12 +38,17 @@ class Joueur{
         $this->id = $id;
     }
 
+    public function setMp($mp){
+        $this->mp = $mp;
+    }
+
     public function getJoueurById($id,$db){
          $req = $db->prepare('SELECT * FROM joueur WHERE id = ?', [$id],null,true);
         if($req) { 
             $this->user = $req->pseudo;
             $this->pass = $req->mdp;
             $this->id = $req->id;
+            $this->mp = $req->mp;
         }   
     }
 
@@ -55,10 +61,16 @@ class Joueur{
         }
     }
 
+
+
     public function setADEtoDB($db){
         $req = $db->action('update ADE set a=? , d=? , e=? where id_joueur=?', [$this->a,$this->d,$this->e,$this->id]);
     }
 
+    public function setMPtoDB($db){
+        $req = $db->action('update joueur set mp=? where id=?', [$this->mp,$this->id]);
+        $req = $db->action('update ADE set a=? where id_joueur=?', [$this->a,$this->id]);
+    }
     
     
 }
