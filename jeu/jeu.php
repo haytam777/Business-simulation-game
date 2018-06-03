@@ -653,6 +653,8 @@ switch ($idjour%7) {
     <!-- MODAL EMPRINT SCRIT-->
     <?php
     if($idjour === '1'){ 
+        $joueur->a = 200;
+        $joueur->setADEtoDB($db);
     ?>
     <script src="emprunt_modal.js"></script>
     <?php } ?>
