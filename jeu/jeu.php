@@ -18,7 +18,7 @@ $ctrlSally = "";
 $ctrlBanque = "";
 $ctrlHarry = "";
 $ctrlClara = "";
-$ctrlCartes = "";
+$ctrlCartes = "data-toggle=\"modal\" data-target=\"#cartevie_Modal\"";
 $ctrlRoue = "";
 $ctrlADE = "";
 $ctrlAchat = "";
@@ -32,6 +32,8 @@ switch ($idjour%7) {
     case 6 :  break;
     case 0 :  break;
 }
+
+
 
 
 
@@ -74,6 +76,9 @@ switch ($idjour%7) {
 <body class="fix-header fix-sidebar">
     <!-- Preloader - style you can find in spinners.css -->
     
+    <?php require('cartevie.php' ); ?>
+    <?php require('cartevie_modal.html') ?>
+
     <!--ADE MODAL HTML !-->
     <?php require('emprunt_modal.html') ?>
 
@@ -469,7 +474,7 @@ switch ($idjour%7) {
                             <div class="media">
                                 <div>
                                     <span>
-                                    <img src="../images/Cards.png" style="width:80px;height:80px;">
+                                    <img <?= $ctrlCartes ?> src="../images/Cards.png" style="width:80px;height:80px;">
                                     </span>
                                 </div>
                                 <div class="media-body media-text-right">
@@ -658,7 +663,9 @@ switch ($idjour%7) {
     ?>
     <script src="emprunt_modal.js"></script>
     <?php } ?>
-    
+
+    <!-- MODAL CARTE VIE-->
+    <script src="cartevie_modal.js"></script>
     <!--MODAL ADE SCRIPT -->
     <script src="ade_modal.js"></script>
 

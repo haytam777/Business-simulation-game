@@ -25,7 +25,7 @@ $(document).ready(function(){
                     alert("Vous avez dépassée votre caisse");  
                 }else{
                     $.ajax({  
-                    url:"insert.php",  
+                    url:"insert.php",
                     method:"POST",  
                     data:$('#insert_form').serialize(),  
                     beforeSend:function(){  
