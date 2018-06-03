@@ -10,12 +10,11 @@ session_start();
     $joueur->getJoueurById($_SESSION['auth'],$db);
     $joueur->getADEfromDB($db);
 
-    $joueur->caisse = 0;
     $joueur->a = 0;
     $joueur->d = 0;
         
     $joueur->setADEtoDB($db);
-    $joueur->setCaissetoDB($db);
+
 
 
 ?>

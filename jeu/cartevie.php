@@ -30,10 +30,6 @@ switch ($rand) {
                                               <td>".$joueur->e."</td>
                                             </tr>
                                             <br/>
-                                            <tr>
-                                              <td>CAISSE :</td>
-                                              <td>0</td>
-                                            </tr>
                                         </table>
                                     </div>
                                 </div>
