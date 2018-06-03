@@ -17,14 +17,13 @@ if(!empty($_POST))
     $d = $_POST['depense'];
     $e = $_POST['epargne'];
 
-    $joueur->caisse = $joueur->caisse-((int)$a+(int)$d+(int)$e);
 
-    $joueur->a = $joueur->a + $a;
-    $joueur->d = $joueur->d + $d;
-    $joueur->e = $joueur->e + $e;
+    $joueur->a = $a;
+    $joueur->d = $d;
+    $joueur->e = $e;
         
     $joueur->setADEtoDB($db);
-    $joueur->setCaissetoDB($db);
+    
 }
 
 ?>

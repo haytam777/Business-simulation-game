@@ -330,16 +330,9 @@ switch ($idjour%7) {
                                             <tr>
                                               <td>Epargne</td>
                                               <td><?= $joueur->e; ?></td>
-                                              
-                                              
                                             </tr>
                                             <br/>
-                                            <tr>
-                                              <td>CAISSE :</td>
-                                              <td><?= $joueur->caisse; ?></td>
-                                              
-                                              
-                                            </tr>
+                                            
 
                                         </table>
                                     </div>

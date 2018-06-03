@@ -12,14 +12,14 @@
                 <div class ="modal-body">
                     <form method="post" id="insert_form">
                         <label>Affaire :</label>
-                        <input type="text" name="affaire" id="affaire" class="form-control"/>
+                        <input type="text" name="affaire" id="affaire" placeholder="<?= $joueur->a; ?>" class="form-control"/>
                         <br/>
                         <label>Dépense :</label>
-                        <input type="text" name="depense" id="depense" class="form-control"/>
+                        <input type="text" name="depense" id="depense" placeholder="<?= $joueur->d; ?>" class="form-control"/>
                         <br/>
                         <label>Epargne :</label>
-                        <input type="text" name="epargne" id="epargne" class="form-control"/>
-                        <input id="caisseh" name="caisseh" type="hidden" value="<?= $joueur->caisse; ?>"/>
+                        <input type="text" name="epargne" id="epargne" placeholder="<?= $joueur->e; ?>" class="form-control"/>
+                        <input id="caisseh" name="caisseh" type="hidden" value="<?= (int)$joueur->a+(int)$joueur->d+(int)$joueur->e; ?>"/>
                         <br/>
                         <input type="submit" name="insert" id="insert" value="Valider" class="btn btn-success"/>
                     </form>

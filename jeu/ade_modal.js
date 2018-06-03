@@ -21,8 +21,8 @@ $(document).ready(function(){
                 d =parseInt($('#depense').val());
                 e =parseInt($('#epargne').val());
                 somme = (a+d+e)
-                if(somme > parseInt($('#caisseh').val())){
-                    alert("Vous avez dépassée votre caisse");  
+                if(somme != parseInt($('#caisseh').val())){
+                    alert("Veuillez balancer votre caisse");  
                 }else{
                     $.ajax({  
                     url:"insert.php",
