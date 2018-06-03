@@ -71,12 +71,9 @@ switch ($idjour%7) {
 <![endif]-->
 </head>
 
-<body class="fix-header fix-sidebar">
+<body class="fix-header fix-sidebar" onload="setInterval('incs()', 1000)">
     <!-- Preloader - style you can find in spinners.css -->
     
-    <!--ADE MODAL HTML !-->
-    <?php require('emprunt_modal.html') ?>
-
     <!--ADE MODAL HTML !-->
     <?php require('ade_modal.html') ?>
 
@@ -325,13 +322,6 @@ switch ($idjour%7) {
                                             <tr>
                                               <td>Epargne</td>
                                               <td><?= $joueur->e; ?></td>
-                                              
-                                              
-                                            </tr>
-                                            <br/>
-                                            <tr>
-                                              <td>CAISSE :</td>
-                                              <td><?= $joueur->caisse; ?></td>
                                               
                                               
                                             </tr>
@@ -648,16 +638,69 @@ switch ($idjour%7) {
 
     <script type="text/javascript">
         // we need to import our server side variable into javascript to let it increment live
-    
+        var car = <?php print($format); ?>;
+        var rou
+        var vendredi ="Vendredi"
+        var idjour = parseInt(document.getElementById("idjour").innerHTML) 
+        function incs(){
+        car = car + 1;
+        rou = Math.round(car*100)/100
+        
+        switch (idjour%7){
+            case 1 : document.getElementById("nomjour").innerHTML="Jeudi"; break;
+            case 2 : document.getElementById("nomjour").innerHTML="Vendredi"; break;
+            case 3 : document.getElementById("nomjour").innerHTML="Samedi"; break;
+            case 4 : document.getElementById("nomjour").innerHTML="Dimanche"; break;
+            case 5 : document.getElementById("nomjour").innerHTML="Lundi"; break;
+            case 6 : document.getElementById("nomjour").innerHTML="Mardi"; break;
+            case 0 : document.getElementById("nomjour").innerHTML="Mercredi"; break;
+            
+
+        }
+            if(rou==100){
+
+                <?php $session->updateJourCourant($db, $idjour); ?>      
+                document.getElementById("idjour").innerHTML = idjour + 1;
+
+                if (document.getElementById("nomjour").innerHTML == 'Jeudi'){
+                    document.getElementById("nomjour").innerHTML = "Vendredi";
+                }
+                else if (document.getElementById("nomjour").innerHTML == "Vendredi"){
+                    document.getElementById("nomjour").innerHTML="Samedi";
+                }
+                else if (document.getElementById("nomjour").innerHTML == "Samedi"){
+                    document.getElementById("nomjour").innerHTML="Dimanche";
+                }
+                else  if (document.getElementById("nomjour").innerHTML == "Dimanche"){
+                    document.getElementById("nomjour").innerHTML="Lundi";
+                }
+                else if (document.getElementById("nomjour").innerHTML == "Lundi"){
+                    document.getElementById("nomjour").innerHTML="Mardi";
+                }
+                else if (document.getElementById("nomjour").innerHTML == "Mardi"){
+                    document.getElementById("nomjour").innerHTML="Mercredi";
+                }
+                else if (document.getElementById("nomjour").innerHTML == "Mercredi"){
+                    document.getElementById("nomjour").innerHTML="Jeudi";
+                }
+            }
+        document.getElementById("carb").innerHTML=rou;
+        
+        }
+
+        function myFunction() {
+            var oldId = parseInt(<?= $idjour ?>)
+            var newId = parseInt(document.getElementById("idjour").innerHTML)
+
+            if (newId == oldId + 1){
+                 window.location.reload(true);
+            }
+        }
+
+     
+        setInterval(myFunction,1000);
         
     </script>
-
-    <!-- MODAL EMPRINT SCRIT-->
-    <?php
-    if($idjour === '1'){ 
-    ?>
-    <script src="emprunt_modal.js"></script>
-    <?php } ?>
     
     <!--MODAL ADE SCRIPT -->
     <script src="ade_modal.js"></script>
