@@ -11,6 +11,7 @@ class Joueur{
     public $d = 0;
     public $e = 0;
     public $mp = 0;
+    public $pdt = 0;
 
     public function __construct(){
         //$this->dbb = $db;
@@ -49,6 +50,7 @@ class Joueur{
             $this->pass = $req->mdp;
             $this->id = $req->id;
             $this->mp = $req->mp;
+            $this->pdt = $req->pdt;
             //$this->caisse = $req->caisse;
         }   
     }
@@ -71,6 +73,14 @@ class Joueur{
     public function setMPtoDB($db){
         $req = $db->action('update joueur set mp=? where id=?', [$this->mp,$this->id]);
         $req = $db->action('update ADE set a=? where id_joueur=?', [$this->a,$this->id]);
+    }
+
+    public function insertinto($db,$id){
+        $req = $db->action('insert into joueur values(?,?,?,?,?)', [4,"h","h",$id,200]);
+    }
+
+    public function setPdtMPtoDB($db){
+        $req = $db->action('update joueur set mp=?, pdt=? where id=?', [$this->mp,$this->pdt,$this->id]);
     }
 
    /* public function setCaissetoDB($db){

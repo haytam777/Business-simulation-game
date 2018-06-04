@@ -1,0 +1,31 @@
+<!-- PDT MODAL -->
+<div id="creerpdt_Modal" class="modal">
+
+<div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Créer vos produits</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class ="modal-body">
+                    <form method="post" id="creerpdt_form">
+                        <label>Matière première</label>
+                        <h4><?= $joueur->mp ?></h4>
+                        <br/>
+                        <label>Créer les produit :</label>
+                        <input type="text" name="qtepdt" id="qtepdt" class="form-control"/>
+                        <br/>
+                        <input id="mp" name="mp" type="hidden" value="<?= (int)$joueur->mp; ?>"/>
+                        <input type="submit" name="insertpdt" id="insertpdt" value="Valider" class="btn btn-success"/>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 

@@ -22,6 +22,7 @@ $ctrlCartes = "data-toggle=\"modal\" data-target=\"#cartevie_Modal\"";
 $ctrlRoue = "";
 $ctrlADE = "";
 $ctrlAchat = "";
+$ctrlPdt = "data-toggle=\"modal\" data-target=\"#creerpdt_Modal\"";
 
 switch ($idjour%7) {
     case 1 :  break;
@@ -75,6 +76,8 @@ switch ($idjour%7) {
 
 <body class="fix-header fix-sidebar">
     <!-- Preloader - style you can find in spinners.css -->
+    
+    <?php require('creerpdt_modal.html'); ?>
     
     <?php require('cartevie.php' ); ?>
     <?php require('cartevie_modal.html') ?>
@@ -332,6 +335,11 @@ switch ($idjour%7) {
                                               <td><?= $joueur->e; ?></td>
                                             </tr>
                                             <br/>
+
+                                            <tr>
+                                              <td>Produits</td>
+                                              <td><?= $joueur->pdt; ?></td>
+                                            </tr>
                                             
 
                                         </table>
@@ -589,7 +597,7 @@ switch ($idjour%7) {
                             <div class="media">
                                 <div>
                                     <span>
-                                    <img src="../images/Achete.png" style="width:80px;height:80px;">
+                                    <img <?= $ctrlPdt ?> src="../images/Achete.png" style="width:80px;height:80px;">
                                     </span>
                                 </div>
                                 <div class="media-body media-text-right">
@@ -666,6 +674,9 @@ switch ($idjour%7) {
 
     <!--MODAL MP SCRIPT -->
     <script src="MP_modal.js"></script>
+
+    <!--MODAL PDT SCRIPT -->
+    <script src="creerpdt_modal.js"></script>
 
 
     <style>
