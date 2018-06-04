@@ -15,7 +15,7 @@ $joueur->getADEfromDB($db);
 
 
 $ctrlSally = "";
-$ctrlBanque = "";
+$ctrlBanque =  "data-toggle=\"modal\" data-target=\"#banque_Modal\"";
 $ctrlHarry = "";
 $ctrlClara = "";
 $ctrlCartes = "data-toggle=\"modal\" data-target=\"#cartevie_Modal\"";
@@ -90,6 +90,8 @@ switch ($idjour%7) {
 
     <!--MP MODAL HTML !-->
     <?php require('MP_modal.html') ?>
+
+    <?php require('banque_modal.html') ?>
 
     <!-- Main wrapper  -->
     <div id="main-wrapper">
@@ -426,7 +428,7 @@ switch ($idjour%7) {
                             <div class="media">
                                 <div>
                                     <span>
-                                    <img src="../images/Banque.png" style="width:80px;height:80px;">
+                                    <img <?= $ctrlBanque ?> src="../images/Banque.png" style="width:80px;height:80px;">
                                     </span>
                                 </div>
                                 <div class="media-body media-text-right">
@@ -677,6 +679,8 @@ switch ($idjour%7) {
 
     <!--MODAL PDT SCRIPT -->
     <script src="creerpdt_modal.js"></script>
+
+    <script src="banque_modal.js"></script>
 
 
     <style>
