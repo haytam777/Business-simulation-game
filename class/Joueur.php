@@ -99,6 +99,15 @@ class Joueur{
         }
     }
 
+    public function getQuantite($db, $id){
+        $req = $db->prepare('SELECT sum(quantite) as sum FROM pj WHERE idp = ? and idj = ?', [$id,$this->id],null, true);
+        if($req) { 
+            $p = $req->sum ;
+            return $p;
+        }
+        return 0;
+    }
+
 
    /* public function setCaissetoDB($db){
         $req = $db->action('update joueur set caisse=? where id=?', [$this->caisse,$this->id]);

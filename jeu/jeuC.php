@@ -13,129 +13,30 @@ $joueur = new Joueur();
 $joueur->getJoueurById($_SESSION['auth'],$db);
 $joueur->getADEfromDB($db);
 
-$q = $joueur->getQuantite($db, 11);
-
-echo 'tehee '.$q;
-
 
 $ctrlSally = "";
-$ctrlBanque =  "data-toggle=\"modal\" data-target=\"#achats_Modal\"";
-$ctrlHarry = "data-toggle=\"modal\" data-target=\"#add_data_ModalMP\"";
+$ctrlBanque =  "data-toggle=\"modal\" data-target=\"#banque_Modal\"";
+$ctrlHarry = "";
 $ctrlClara = "data-toggle=\"modal\" data-target=\"#add_data_ModalClara\"";
 $ctrlCartes = "data-toggle=\"modal\" data-target=\"#cartevie_Modal\"";
 $ctrlRoue = "";
-$ctrlADE = "data-toggle=\"modal\" data-target=\"#add_data_Modal\"";
-$ctrlAchat ="data-toggle=\"modal\" data-target=\"#achats_Modal\"";
+$ctrlADE = "";
+$ctrlAchat = "";
 $ctrlPdt = "data-toggle=\"modal\" data-target=\"#creerpdt_Modal\"";
 
 switch ($idjour%7) {
     case 1 :  break;
-    case 2 :  break;
+    case 2 : $ctrlADE = "data-toggle=\"modal\" data-target=\"#add_data_Modal\"" ; break;
     case 3 : break;
     case 4 : break;
-    case 5 :  break;
+    case 5 : $ctrlHarry = "data-toggle=\"modal\" data-target=\"#add_data_ModalMP\"" ; break;
     case 6 :  break;
     case 0 :  break;
 }
 
-$c1="";
-$c2="";
-$c3="";
-$c4="";
-$c5="";
-$c6="";
-$c7="";
-$c8="";
-$c9="";
-$c10="";
-$c11="";
-$c12="";
-$c13="";
-$c14="";
-$c15="";
-$c16="";
-$c17="";
-$c18="";
-$c19="";
-$c20="";
-$c21="";
-$c22="";
-$c23="";
-$c24="";
-$c25="";
-$c26="";
-$c27="";
-$c28="";
-$c29="";
-$c30="";
-
-$d1="";
-$d2="";
-$d3="";
-$d4="";
-$d5="";
-$d6="";
-$d7="";
-$d8="";
-$d9="";
-$d10="";
-$d11="";
-$d12="";
-$d13="";
-$d14="";
-$d15="";
-$d16="";
-$d17="";
-$d18="";
-$d19="";
-$d20="";
-$d21="";
-$d22="";
-$d23="";
-$d24="";
-$d25="";
-$d26="";
-$d27="";
-$d28="";
-$d29="";
-$d30="";
-
-switch ($idjour) {
-case 1 : $c1  =" href=\"\" data-toggle=\"modal\" data-target=\"#jeudi_Modal\">Plus d'infos"; $d1="style=\"background-color: #668cff;\"" ;break;
-case 2 : $c2  =" href=\"\" data-toggle=\"modal\" data-target=\"#vendredi_Modal\">Plus d'infos"; $d2="style=\"background-color: #668cff;\"" ;break;
-case 3 : $c3  =" href=\"\" data-toggle=\"modal\" data-target=\"#samedi_Modal\">Plus d'infos"; $d3="style=\"background-color: #668cff;\"" ;break;
-case 4 : $c4  =" href=\"\" data-toggle=\"modal\" data-target=\"#dimanche_Modal\">Plus d'infos"; $d4="style=\"background-color: #668cff;\"" ;break;
-case 5 : $c5  =" href=\"\" data-toggle=\"modal\" data-target=\"#lundi_Modal\">Plus d'infos"; $d5="style=\"background-color: #668cff;\"" ;break;
-case 6 : $c6  =" href=\"\" data-toggle=\"modal\" data-target=\"#mardi_Modal\">Plus d'infos"; $d6="style=\"background-color: #668cff;\"" ;break;
-case 7 : $c7  =" href=\"\" data-toggle=\"modal\" data-target=\"#mercredi_Modal\">Plus d'infos"; $d7="style=\"background-color: #668cff;\"" ;break;
-case 8 : $c8  =" href=\"\" data-toggle=\"modal\" data-target=\"#jeudi_Modal\">Plus d'infos"; $d8="style=\"background-color: #668cff;\"" ;break;
-case 9 : $c9  =" href=\"\" data-toggle=\"modal\" data-target=\"#vendredi_Modal\">Plus d'infos"; $d9="style=\"background-color: #668cff;\"" ;break;
-case 10 : $c10  =" href=\"\" data-toggle=\"modal\" data-target=\"#samedi_Modal\">Plus d'infos"; $d10="style=\"background-color: #668cff;\"" ;break;
-case 11 : $c11  =" href=\"\" data-toggle=\"modal\" data-target=\"#dimanche_Modal\">Plus d'infos"; $d11="style=\"background-color: #668cff;\"" ;break;
-case 12 : $c12  =" href=\"\" data-toggle=\"modal\" data-target=\"#lundi_Modal\">Plus d'infos"; $d12="style=\"background-color: #668cff;\"" ;break;
-case 13 : $c13  =" href=\"\" data-toggle=\"modal\" data-target=\"#mardi_Modal\">Plus d'infos"; $d13="style=\"background-color: #668cff;\"" ;break;
-case 14 : $c14  =" href=\"\" data-toggle=\"modal\" data-target=\"#mercredi_Modal\">Plus d'infos"; $d14="style=\"background-color: #668cff;\"" ;break;
-case 15 : $c15  =" href=\"\" data-toggle=\"modal\" data-target=\"#jeudi_Modal\">Plus d'infos"; $d15="style=\"background-color: #668cff;\"" ;break;
-case 16 : $c16  =" href=\"\" data-toggle=\"modal\" data-target=\"#vendredi_Modal\">Plus d'infos"; $d16="style=\"background-color: #668cff;\"" ;break;
-case 17 : $c17  =" href=\"\" data-toggle=\"modal\" data-target=\"#samedi_Modal\">Plus d'infos"; $d17="style=\"background-color: #668cff;\"" ;break;
-case 18 : $c18  =" href=\"\" data-toggle=\"modal\" data-target=\"#dimanche_Modal\">Plus d'infos"; $d18="style=\"background-color: #668cff;\"" ;break;
-case 19 : $c19  =" href=\"\" data-toggle=\"modal\" data-target=\"#lundi_Modal\">Plus d'infos"; $d19="style=\"background-color: #668cff;\"" ;break;
-case 20 : $c20  =" href=\"\" data-toggle=\"modal\" data-target=\"#mardi_Modal\">Plus d'infos"; $d20="style=\"background-color: #668cff;\"" ;break;
-case 21 : $c21  =" href=\"\" data-toggle=\"modal\" data-target=\"#mercredi_Modal\">Plus d'infos"; $d21="style=\"background-color: #668cff;\"" ;break;
-case 22 : $c22  =" href=\"\" data-toggle=\"modal\" data-target=\"#jeudi_Modal\">Plus d'infos"; $d22="style=\"background-color: #668cff;\"" ;break;
-case 23 : $c23  =" href=\"\" data-toggle=\"modal\" data-target=\"#vendredi_Modal\">Plus d'infos"; $d23="style=\"background-color: #668cff;\"" ;break;
-case 24 : $c24  =" href=\"\" data-toggle=\"modal\" data-target=\"#samedi_Modal\">Plus d'infos"; $d24="style=\"background-color: #668cff;\"" ;break;
-case 25 : $c25  =" href=\"\" data-toggle=\"modal\" data-target=\"#dimanche_Modal\">Plus d'infos"; $d25="style=\"background-color: #668cff;\"" ;break;
-case 26 : $c26  =" href=\"\" data-toggle=\"modal\" data-target=\"#lundi_Modal\">Plus d'infos"; $d26="style=\"background-color: #668cff;\"" ;break;
-case 27 : $c27  =" href=\"\" data-toggle=\"modal\" data-target=\"#mardi_Modal\">Plus d'infos"; $d27="style=\"background-color: #668cff;\"" ;break;
-case 28 : $c28  =" href=\"\" data-toggle=\"modal\" data-target=\"#mercredi_Modal\">Plus d'infos"; $d28="style=\"background-color: #668cff;\"" ;break;
-case 29 : $c29  =" href=\"\" data-toggle=\"modal\" data-target=\"#jeudi_Modal\">Plus d'infos"; $d29="style=\"background-color: #668cff;\"" ;break;
-case 30 : $c30  =" href=\"\" data-toggle=\"modal\" data-target=\"#vendredi_Modal\">Plus d'infos"; $d30="style=\"background-color: #668cff;\"" ;break;
-
-}
-
 $a = $joueur->a;
 
+echo("a=".$a);
 
 
 ?>
@@ -194,16 +95,6 @@ $a = $joueur->a;
 
      <!--MP MODAL HTML !-->
     <?php require('Clara_modal.html') ?>
-
-    <?php require('lundi_modal.html') ?>
-    <?php require('mardi_modal.html') ?>
-    <?php require('mercredi_modal.html') ?>
-    <?php require('jeudi_modal.html') ?>
-    <?php require('vendredi_modal.html') ?>
-    <?php require('samedi_modal.html') ?>
-    <?php require('dimanche_modal.html') ?>
-
-    <?php require('achats_modal.html') ?>
 
     <!-- Main wrapper  -->
     <div id="main-wrapper">
@@ -465,19 +356,21 @@ $a = $joueur->a;
                             <div class="card p-30">
                                 <div class="media">
                                     <div class="media-left meida media-middle">
-                                        <span>
-                                            <img <?= $ctrlPdt ?> src="../images/produit.png" style="width:80px;height:80px;">
-                                        </span>
+                                        <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                                     </div>
                                     <div class="media-body media-text-right">
-                                        
-                                        
-                                        <p class="m-b-0">Fabriquer un produit</p>
+                                        <h2 id="carb">0</h2>
+                                        <?php
+                                            $now = time();
+                                            $start = mktime(0, 0, 0, 1, 24, 2007);
+                                            $carbonsaving =(0);
+                                            $format = round($carbonsaving, 2);
+                                        ?>
+                                        <p class="m-b-0">Paieront-ils</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    
                         <div class="navbar-collapse">
                             <div class="card p-30">
                                 <div class="media">
@@ -487,15 +380,6 @@ $a = $joueur->a;
                                     <div class="media-body media-text-right">
                                         <h1 id="nomjour">Jeudi</h1>
                                         <h2 id="idjour" onchange="myFunction()"><?= $idjour; ?></h2>
-                                        <h2 id="carb">0</h2>
-                                        <h2 id="compteur" > 
-                                            <?php
-                                                $now = time();
-                                                $start = mktime(0, 0, 0, 1, 24, 2007);
-                                                $carbonsaving =(0);
-                                                $format = round($carbonsaving, 2);
-                                            ?>
-                                        </h2>
                                     </div>
                                     
                                 </div>
@@ -629,63 +513,68 @@ $a = $joueur->a;
                             <div>
                                 <div class="media-body media-text-right">
                                     <div style="overflow-x:auto;">
-                                          <table class="cycleAffaires">
+                                          <table>
                                             <tr>
-                                              <th>LUNDI</th>
-                                              <th>MARDI</th>
-                                              <th>MERCREDI</th>
-                                              <th>JEUDI</th>
-                                              <th>VENDREDI</th>
-                                              <th>SAMEDI</th>
-                                              <th>DIMANCHE</th>
+                                              <th>First Name</th>
+                                              <th>Last Name</th>
+                                              <th>Points</th>
+                                              <th>Points</th>
+                                              <th>Points</th>
+                                              <th>Points</th>
+                                              <th>Points</th>
 
                                             </tr>
-                                           <tr>
-     <div><td ></a></td></div>
-     <div><td ></a></td></div>
-     <div><td ></a></td></div>
-     <div><td <?= $d1 ?>><a<?= $c1 ?>></a></td></div>
-     <div><td <?= $d2 ?>><a<?= $c2 ?>></a></td></div>
-     <div><td <?= $d3 ?>><a<?= $c3 ?>></a></td></div>
-     <div><td <?= $d4 ?>><a<?= $c4 ?>></a></td></div>
-</tr>
-<tr>
-     <div><td <?= $d5 ?>><a<?= $c5 ?>></a></td></div>
-     <div><td <?= $d6 ?>><a<?= $c6 ?>></a></td></div>
-     <div><td <?= $d7 ?>><a<?= $c7 ?>></a></td></div>
-     <div><td <?= $d8 ?>><a<?= $c8 ?>></a></td></div>
-     <div><td <?= $d9 ?>><a<?= $c9 ?>></a></td></div>
-     <div><td <?= $d10 ?>><a<?= $c10 ?>></a></td></div>
-     <div><td <?= $d11 ?>><a<?= $c11 ?>></a></td></div>
-</tr>
-<tr>
-     <div><td <?= $d12 ?>><a<?= $c12 ?>></a></td></div>
-     <div><td <?= $d13 ?>><a<?= $c13 ?>></a></td></div>
-     <div><td <?= $d14 ?>><a<?= $c14 ?>></a></td></div>
-     <div><td <?= $d15 ?>><a<?= $c15 ?>></a></td></div>
-     <div><td <?= $d16 ?>><a<?= $c16 ?>></a></td></div>
-     <div><td <?= $d17 ?>><a<?= $c17 ?>></a></td></div>
-     <div><td <?= $d18 ?>><a<?= $c18 ?>></a></td></div>
-</tr>
-<tr>
-     <div><td <?= $d19 ?>><a<?= $c19 ?>></a></td></div>
-     <div><td <?= $d20 ?>><a<?= $c20 ?>></a></td></div>
-     <div><td <?= $d21 ?>><a<?= $c21 ?>></a></td></div>
-     <div><td <?= $d22 ?>><a<?= $c22 ?>></a></td></div>
-     <div><td <?= $d23 ?>><a<?= $c23 ?>></a></td></div>
-     <div><td <?= $d24 ?>><a<?= $c24 ?>></a></td></div>
-     <div><td <?= $d25 ?>><a<?= $c25 ?>></a></td></div>
-</tr>
-<tr>
-     <div><td <?= $d26 ?>><a<?= $c26 ?>></a></td></div>
-     <div><td <?= $d27 ?>><a<?= $c27 ?>></a></td></div>
-     <div><td <?= $d28 ?>><a<?= $c28 ?>></a></td></div>
-     <div><td <?= $d29 ?>><a<?= $c29 ?>></a></td></div>
-     <div><td <?= $d30 ?>><a<?= $c30 ?>></a></td></div>
-     <div><td ></a></td></div>
-     <div><td ></a></td></div>
-</tr>
-                                        
+                                            <tr>
+                                              <td>Jill</td>
+                                              <td>Smith</td>
+                                              <td>50</td>
+                                              <td>50</td>
+                                              <td>50</td>
+                                              <td>50</td>
+                                              <td>50</td>
+                                           
+                                            </tr>
+                                            <tr>
+                                              <td>Eve</td>
+                                              <td>Jackson</td>
+                                              <td>94</td>
+                                              <td>94</td>
+                                              <td>94</td>
+                                              <td>94</td>
+                                              <td>94</td>
+                                              
+                                            </tr>
+                                            <tr>
+                                              <td>Adam</td>
+                                              <td>Johnson</td>
+                                              <td>67</td>
+                                              <td>67</td>
+                                              <td>67</td>
+                                              <td>67</td>
+                                              <td>67</td>
+                                              
+                                            </tr>
+                                            <tr>
+                                              <td>Eve</td>
+                                              <td>Jackson</td>
+                                              <td>94</td>
+                                              <td>94</td>
+                                              <td>94</td>
+                                              <td>94</td>
+                                              <td>94</td>
+                                              
+                                            </tr>
+                                            <tr>
+                                              <td>Adam</td>
+                                              <td>Johnson</td>
+                                              <td>67</td>
+                                              <td>67</td>
+                                              <td>67</td>
+                                              <td>67</td>
+                                              <td>67</td>
+                                              
+                                            </tr>
+
                                           </table>
                                         </div>
                                 </div>
@@ -713,7 +602,7 @@ $a = $joueur->a;
                             <div class="media">
                                 <div>
                                     <span>
-                                    <img <?= $ctrlAchat ?> src="../images/Achete.png" style="width:80px;height:80px;">
+                                    <img <?= $ctrlPdt ?> src="../images/Achete.png" style="width:80px;height:80px;">
                                     </span>
                                 </div>
                                 <div class="media-body media-text-right">
@@ -776,7 +665,7 @@ $a = $joueur->a;
 
     <!-- MODAL EMPRINT SCRIT-->
     <?php
-    if($idjour === '177'){ 
+    if($idjour === '1'){ 
         $joueur->a = 200;
         $joueur->setADEtoDB($db);
     ?>
@@ -801,7 +690,6 @@ $a = $joueur->a;
 
 
     <style>
-
         table {
             border-collapse: collapse;
             border-spacing: 0;
@@ -809,7 +697,7 @@ $a = $joueur->a;
             border: 1px solid #ddd;
         }
         th, td {
-            
+            text-align: left;
             padding: 8px;
         }
         .display {
@@ -818,21 +706,6 @@ $a = $joueur->a;
         .whitething {
             color: white;
         }
-
-        .cycleAffaires {
-            border: 1px solid black;
-        }
-
-        td,th {
-            border-style:solid;
-            width: 14%;
-            height:40px;
-            border-width:3px;
-            border-color:#333333;
-            text-align: center;
-            text-align-last: center;
-            
-         }
         tr:nth-child(even){background-color: #f2f2f2}
         </style>
 

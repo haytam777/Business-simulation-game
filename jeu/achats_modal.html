@@ -1,0 +1,76 @@
+
+<div id="achats_Modal" class="modal">
+
+<div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Mes achats</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class ="modal-body">
+                  <table>
+                    <tr>
+                      <th>Produit </th>
+                      <th>Quantité</th>
+                      <th>Produit </th>
+                      <th>Quantité</th>
+
+                    </tr>
+                    <tr>
+                      <td><img src="../images/image_part_001.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 1); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                      <td><img src="../images/image_part_002.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 2); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                    </tr>
+                    <tr>
+                      <td><img src="../images/image_part_003.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 3); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                      <td><img src="../images/image_part_004.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 4); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                    </tr>
+                    <tr>
+                      <td><img src="../images/image_part_005.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 5); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                      <td><img src="../images/image_part_006.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 6); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                    </tr>
+                    <tr>
+                      <td><img src="../images/image_part_007.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 7); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                      <td><img src="../images/image_part_008.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 8); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                    </tr>
+                    <tr>
+                      <td><img src="../images/image_part_009.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 9); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                      <td><img src="../images/image_part_010.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 10); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                    </tr>
+                    <tr>
+                      <td><img src="../images/image_part_011.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 11); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                      <td><img src="../images/image_part_012.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 12); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                    </tr>
+                    <tr>
+                      <td><img src="../images/image_part_013.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 13); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                      <td><img src="../images/image_part_014.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 14); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                    </tr>
+                    <tr>
+                      <td><img src="../images/image_part_015.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 15); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                      <td><img src="../images/image_part_016.jpg" style="width:auto; height:300%;"></td>
+                      <td><?php $q =  $joueur->getQuantite($db, 16); if($q > 0){ echo $q; } else { echo 0;}?></td>
+                    </tr>
+
+                  </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
