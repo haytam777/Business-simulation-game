@@ -83,6 +83,23 @@ class Joueur{
         $req = $db->action('update joueur set mp=?, pdt=? where id=?', [$this->mp,$this->pdt,$this->id]);
     }
 
+    public function setProduittoDB($db, $id_produit, $quantite){
+        $req = $db->action('insert into PJ values(?,?,?)', [ $id_produit ,$this->id,$quantite] );
+    }
+
+    public function test($db){
+        $req = $db->action("insert into PJ values(4, 5, 5) ");
+    }
+
+    public function getPrix($db, $id_produit){
+        $req = $db->prepare('SELECT prix FROM produit WHERE id = ?', [$id_produit],null,true);
+        if($req) { 
+            $p = $req->prix ;
+            return $p;
+        }
+    }
+
+
    /* public function setCaissetoDB($db){
         $req = $db->action('update joueur set caisse=? where id=?', [$this->caisse,$this->id]);
     } */

@@ -17,7 +17,7 @@ $joueur->getADEfromDB($db);
 $ctrlSally = "";
 $ctrlBanque =  "data-toggle=\"modal\" data-target=\"#banque_Modal\"";
 $ctrlHarry = "";
-$ctrlClara = "";
+$ctrlClara = "data-toggle=\"modal\" data-target=\"#add_data_ModalClara\"";
 $ctrlCartes = "data-toggle=\"modal\" data-target=\"#cartevie_Modal\"";
 $ctrlRoue = "";
 $ctrlADE = "";
@@ -34,9 +34,9 @@ switch ($idjour%7) {
     case 0 :  break;
 }
 
+$a = $joueur->a;
 
-
-
+echo("a=".$a);
 
 
 ?>
@@ -93,6 +93,9 @@ switch ($idjour%7) {
 
     <?php require('banque_modal.html') ?>
 
+     <!--MP MODAL HTML !-->
+    <?php require('Clara_modal.html') ?>
+
     <!-- Main wrapper  -->
     <div id="main-wrapper">
         <!-- header header  -->
@@ -113,7 +116,7 @@ switch ($idjour%7) {
                     <!-- toggle and nav items -->
                     <ul class="navbar-nav mr-auto mt-md-0">
                         <!-- This is  -->
-
+                    <input type="hidden" name="a" id = "a" value="<?= $a;?>">
                         
                         <!-- Messages -->
                         <li class="nav-item dropdown mega-dropdown"> <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-th-large"></i></a>
@@ -460,7 +463,7 @@ switch ($idjour%7) {
                             <div class="media">
                                 <div>
                                     <span>
-                                    <img src="../images/Clara.png" style="width:75px;height:80px;">
+                                    <img <?= $ctrlClara ?> src="../images/Clara.png" style="width:75px;height:80px;">
                                     </span>
                                 </div>
                                 <div class="media-body media-text-right">
@@ -681,6 +684,9 @@ switch ($idjour%7) {
     <script src="creerpdt_modal.js"></script>
 
     <script src="banque_modal.js"></script>
+
+    <!--MODAL CLARA SCRIPT -->
+    <script src="Clara_modal.js"></script>
 
 
     <style>

@@ -1,0 +1,83 @@
+<!-- Clara MODAL -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div id="add_data_ModalClara" class="modal">
+
+<div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Bienvenu chez Clara</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class ="modal-body">
+                    <center><img src="../images/catalogue.png">
+                    <form method="post" id="insertClara_form">
+                        <select name="selected" id="selected">
+                          <option id="150" value="1" prix="150">Restaurant</option>
+                          <option id="50" value="2">Nouriture</option>
+                          <option id="300" value="3">Lunettes</option>
+                          <option id="100"  value="4">Repas</option>
+                          <option id="Shopping" value="5">Shopping</option>
+                          <option id="Robe" value="6">Robe</option>
+                          <option id="Telephone" value="7">Telephone</option>
+                          <option id="Vetement" value="8">Vetement</option>
+                          <option id="Demenagement" value="9">Demenagement</option>
+                          <option id="Cake" value="10">Cake</option>
+                          <option id="Calculatrice" value="11">Calculatrice</option>
+                          <option id="Rouge" value="12">Rouge</option>
+                          <option id="Abonnement" value="13">Abonnement</option>
+                          <option id="Talons" value="14">Talons</option>
+                          <option id="Glace" value="15">Glace</option>
+                          <option id="Cadeau" value="16">Cadeau</option>
+                        </select>
+                        <input type="quantite" id="quantite" name="quantite">
+                        <!--<h2 id="res" name="res" type="res"><script >document.getElementById("res").innerHTML = (document.getElementById("selected").value)</script></h2>-->
+                        <h2 id="prix"></h2>
+                        <input type="submit" name="insertClara" id="insertClara" value="Valider" class="btn btn-success" />
+                        <input type="hidden" name="total" id="total" value="">
+                        <input type="hidden" id="disponible" name="disponible" value="<?= $joueur->a ?>" >
+                    </form></center>
+                    <script>
+
+                           var disponible = document.getElementById("disponible").value;
+                          var total  = document.getElementById("total").value;
+                        $(document).ready(function(){
+                            $("select").change(function(){
+                              //alert("Le prix est "+ document.getElementById("selected").prix);
+                                var id = parseInt($(this).children(":selected").attr("id"));
+                                //alert(id);
+                               var q = parseInt(document.getElementById("quantite").value);
+                               
+                               if (q==0) q++;
+                                //alert("res = "+ document.getElementById("res").value);
+                                
+                                document.getElementById("total").value = id*q;
+
+                                //alert("Total mn fct : "+ document.getElementById("total").value);
+                                //alert("q="+q);
+                                //alert("total="+ document.getElementById("total").value);
+                            });
+                        });
+
+                        function fct(){
+                          var disponible = document.getElementById("disponible").value;
+                                var total  = document.getElementById("total").value;
+                                if (total > disponible){
+                                  //alert("Vous n'avez pas le montant suffisant pour acheter cette quantité!");
+                                }
+                        }
+
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<style type="text/css">img {
+    width: 100%;
+    height: auto;
+}</style>
+
+ 
