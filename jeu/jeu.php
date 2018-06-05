@@ -50,6 +50,9 @@ else {
 if($idjour < 27)
     $_SESSION['lastmardi']='0';
 
+if($idjour < 29)
+    $_SESSION['lastjeudi']='0';
+
 echo 'tehee '.$q;
 
 $indice = max($joueur->a,$joueur->d,$joueur->e);
@@ -271,6 +274,8 @@ $a = $joueur->a;
     <?php require('lastmardi_modal.html') ?>
 
     <?php require('fin_modal.php') ?>
+
+    <?php require('lastjeudi_modal.html') ?>
 
     <!-- Main wrapper  -->
     <div id="main-wrapper">
@@ -894,6 +899,20 @@ $a = $joueur->a;
     <script >
         setTimeout(function(){ 
             $('#fin_Modal').modal('show'); 
+        //location.reload();                       
+            }, 3000);
+    </script>
+    <?php } ?>
+
+    <?php
+    if($idjour === '29' && $_SESSION['lastjeudi']=='0'){
+        $joueur->a = $joueur->a - 250;
+        $joueur->setADEtoDB($db);
+        $_SESSION['lastjeudi'] = '1'
+    ?>
+    <script >
+        setTimeout(function(){ 
+            $('#lastjeudi_Modal').modal('show'); 
         //location.reload();                       
             }, 3000);
     </script>
