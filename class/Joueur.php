@@ -12,6 +12,7 @@ class Joueur{
     public $e = 0;
     public $mp = 0;
     public $pdt = 0;
+    public $listCreances = array();
 
     public function __construct(){
         //$this->dbb = $db;
@@ -51,7 +52,7 @@ class Joueur{
             $this->id = $req->id;
             $this->mp = $req->mp;
             $this->pdt = $req->pdt;
-            //$this->caisse = $req->caisse;
+            
         }   
     }
 
@@ -106,6 +107,27 @@ class Joueur{
             return $p;
         }
         return 0;
+    }
+
+    public function getCreancesFromDB($db){
+        $req = $db->prepare('SELECT * FROM creance WHERE id_joueur = ? ', [$this->id],'Creance',false);
+        return $req;
+    }
+
+    public function setCreancetoDB($db,$jour,$creance){
+        $req = $db->action('insert into creance(id_joueur,id_jour,creance) values(?,?,?)', [$this->id,$jour,$creance]);
+    }
+
+    public function getCreance($db,$idjour){
+        $req = $db->prepare('SELECT sum(creance) as sum FROM creance WHERE id_joueur = ? and id_jour = ?', [$this->id,$idjour],null, true);
+        if($req){
+            return $req->sum;
+        }
+        else return 0;
+    }
+
+    public function dropCreance($db,$idjour){
+     $req = $db->action('delete from creance where id_joueur = ? and id_jour = ?',[$this->id,$idjour]);
     }
 
 

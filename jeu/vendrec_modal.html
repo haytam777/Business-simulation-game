@@ -1,0 +1,34 @@
+<!-- PDT MODAL -->
+<div id="vendrec_Modal" class="modal">
+
+<div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Vendre vos produits à Sally à crédit</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class ="modal-body">
+                    <form method="post" id="vendrec_form">
+                        <label>Vendre à 120 en lançant la roue</label>
+                        <input id="jour" name="jour" type="hidden" value="<?= $qd ?>"/>
+                        <input id="creance" name="creance" type="hidden" value="<?= $creance_percentage ?>"/>
+                        <input type="text" name="qtevc" id="qtevc" class="form-control"/>
+                        <br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="submit">
+                            <img src="../images/roue.jpg" style="width:auto; height:20%;" />
+                        </button>
+                    </form>
+                    <div class="modal-footer">
+                        <button id="btn" type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

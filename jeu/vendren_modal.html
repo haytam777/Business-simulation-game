@@ -1,0 +1,32 @@
+<!-- PDT MODAL -->
+<div id="vendren_Modal" class="modal">
+
+<div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Vendre vos produits à Sally</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class ="modal-body">
+                    <form method="post" id="vendren_form">
+                        <label>Vendre à 100 en lançant un dé</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="submit">
+                            <img src="../images/dee.png" style="width:auto; height:4%;" />
+                        </button>
+                        <input id="de" name="de" type="hidden" value="<?= $de ?>"/>
+                        <br/>
+                        <h3>OU </h3>
+                        <label>Vendre à 60 pièce</label>
+                        <input type="text" name="qtev" id="qtev" class="form-control"/>
+                        <br/>
+                        <input type="submit" name="insertvendren" id="insertvendren" value="Valider" class="btn btn-success"/> 
+                    </form>
+                    <div class="modal-footer">
+                        <button id="btn" type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -15,18 +15,52 @@ $joueur->getADEfromDB($db);
 
 $q = $joueur->getQuantite($db, 11);
 
+if($joueur->pdt == 0)
+    $de = 0;
+else{
+    $de = rand(1,6);
+    while ($joueur->pdt < $de ){
+        $de = rand(1,6);
+        
+    }
+}
+
+$creance_percentage = rand(1,5);
+if($creance_percentage == 1){
+    $creance_perdentage = 1;
+    $qd = $idjour + 1;
+}
+else if($creance_percentage == 1){
+    $creance_perdentage = 2;
+    $qd = $idjour + 4;
+}
+else if($creance_percentage == 1){
+    $creace_perdentage = 1;
+    $qd = 29;
+}
+else if($creance_percentage == 1){
+    $creance_perdentage = 2;
+    $qd = $idjour + 1;
+}
+else {
+    $creance_perdentage = 0;
+    $qd = 0;
+}
+
 echo 'tehee '.$q;
 
 
-$ctrlSally = "";
+$ctrlSally ="data-toggle=\"modal\" data-target=\"#vendre_Modal\"";
 $ctrlBanque =  "data-toggle=\"modal\" data-target=\"#achats_Modal\"";
 $ctrlHarry = "data-toggle=\"modal\" data-target=\"#add_data_ModalMP\"";
 $ctrlClara = "data-toggle=\"modal\" data-target=\"#add_data_ModalClara\"";
 $ctrlCartes = "data-toggle=\"modal\" data-target=\"#cartevie_Modal\"";
-$ctrlRoue = "";
+$ctrlCreance = "data-toggle=\"modal\" data-target=\"#creance_Modal\"";
 $ctrlADE = "data-toggle=\"modal\" data-target=\"#add_data_Modal\"";
 $ctrlAchat ="data-toggle=\"modal\" data-target=\"#achats_Modal\"";
 $ctrlPdt = "data-toggle=\"modal\" data-target=\"#creerpdt_Modal\"";
+$ctrlVendren = "data-toggle=\"modal\" data-target=\"#vendren_Modal\"";
+$ctrlVendrec = "data-toggle=\"modal\" data-target=\"#vendrec_Modal\"";
 
 switch ($idjour%7) {
     case 1 :  break;
@@ -195,6 +229,10 @@ $a = $joueur->a;
      <!--MP MODAL HTML !-->
     <?php require('Clara_modal.html') ?>
 
+    <?php require('vendre_modal.php') ?>
+    <?php require('vendren_modal.html') ?>
+    <?php require('vendrec_modal.html') ?>
+
     <?php require('lundi_modal.html') ?>
     <?php require('mardi_modal.html') ?>
     <?php require('mercredi_modal.html') ?>
@@ -204,6 +242,8 @@ $a = $joueur->a;
     <?php require('dimanche_modal.html') ?>
 
     <?php require('achats_modal.html') ?>
+
+    <?php require('creance_modal.php') ?>
 
     <!-- Main wrapper  -->
     <div id="main-wrapper">
@@ -532,7 +572,7 @@ $a = $joueur->a;
                             <div class="media">
                                 <div>
                                     <span>
-                                    <img src="../images/Sally.png" style="width:80px;height:80px;">
+                                    <img <?= $ctrlSally ?> src="../images/Sally.png" style="width:80px;height:80px;">
                                     </span>
                                 </div>
                                 <div class="media-body media-text-right">
@@ -612,7 +652,7 @@ $a = $joueur->a;
                             <div class="media">
                                 <div>
                                     <span>
-                                    <img src="../images/Roue.jpg" style="width:76px;height:79px;">
+                                    <img <?= $ctrlCreance ?> src="../images/Roue.jpg" style="width:76px;height:79px;">
                                     </span>
                                 </div>
                                 <div class="media-body media-text-right">
@@ -798,6 +838,12 @@ $a = $joueur->a;
 
     <!--MODAL CLARA SCRIPT -->
     <script src="Clara_modal.js"></script>
+
+    <script src="vendren_modal.js"></script>
+
+    <script src="vendrec_modal.js"></script>
+
+    <script src="creance_modal.js"></script>
 
 
     <style>
