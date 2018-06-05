@@ -47,6 +47,9 @@ else {
     $qd = 0;
 }
 
+if($idjour < 27)
+    $_SESSION['lastmardi']='0';
+
 echo 'tehee '.$q;
 
 
@@ -244,6 +247,8 @@ $a = $joueur->a;
     <?php require('achats_modal.html') ?>
 
     <?php require('creance_modal.php') ?>
+
+    <?php require('lastmardi_modal.html') ?>
 
     <!-- Main wrapper  -->
     <div id="main-wrapper">
@@ -845,6 +850,21 @@ $a = $joueur->a;
 
     <script src="creance_modal.js"></script>
 
+    <?php
+    if($idjour === '27' && $_SESSION['lastmardi']=='0'){ 
+        $joueur->a = $joueur->a - 100;
+        $joueur->setADEtoDB($db);
+        $_SESSION['lastmardi'] = '1'
+    ?>
+     
+ <script >
+    setTimeout(function(){ 
+        $('#lastmardi_Modal').modal('show'); 
+        //location.reload();                       
+    }, 3000);
+ </script>
+    <?php } ?>
+    
 
     <style>
 
