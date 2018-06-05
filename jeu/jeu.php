@@ -52,6 +52,26 @@ if($idjour < 27)
 
 echo 'tehee '.$q;
 
+$indice = max($joueur->a,$joueur->d,$joueur->e);
+if($indice == $joueur->a){
+    $profil = "Amina l'Affairiste";
+    $profilcontenu = "• Amine l’affairiste adore les affaires. 
+                    Elle n’épargne jamais et investit tout son temps et son argent dans l’affaire. 
+                    Elle ne se donne jamais la peine de dépenser temps et argent pour s’occuper de sa famille.";
+}
+else if($indice == $joueur->d){
+    $profil = "Didi la Dépensière";
+    $profilcontenu = "• Didi la dépensière considère son entreprise comme une source de revenus personnels. 
+                        Elle n’épargne pa et utilise tout l’argent de l’entreprise à des fins personnelles. 
+                        Elle ne tient pas de comptabilité et ne se rend pas compte que son entreprise ne fonctionne pas.";
+
+}
+else{
+    $profil = "Louis l'Econome";
+    $profilcontenu = " •Louis l’Economie déteste prendre des risques. 
+                        Il préfère mettre tout son argent dans une épargne où il est en sécurité. 
+                        Il est trop prudent et de ce fait son capital n’augmente jamais";
+}
 
 $ctrlSally ="data-toggle=\"modal\" data-target=\"#vendre_Modal\"";
 $ctrlBanque =  "data-toggle=\"modal\" data-target=\"#achats_Modal\"";
@@ -249,6 +269,8 @@ $a = $joueur->a;
     <?php require('creance_modal.php') ?>
 
     <?php require('lastmardi_modal.html') ?>
+
+    <?php require('fin_modal.php') ?>
 
     <!-- Main wrapper  -->
     <div id="main-wrapper">
@@ -821,7 +843,7 @@ $a = $joueur->a;
 
     <!-- MODAL EMPRINT SCRIT-->
     <?php
-    if($idjour === '177'){ 
+    if($idjour === '1'){ 
         $joueur->a = 200;
         $joueur->setADEtoDB($db);
     ?>
@@ -863,6 +885,18 @@ $a = $joueur->a;
         //location.reload();                       
     }, 3000);
  </script>
+    <?php } ?>
+
+    <!-- fin processing !-->
+    <?php
+    if($idjour === '30'){ 
+    ?>
+    <script >
+        setTimeout(function(){ 
+            $('#fin_Modal').modal('show'); 
+        //location.reload();                       
+            }, 3000);
+    </script>
     <?php } ?>
     
 

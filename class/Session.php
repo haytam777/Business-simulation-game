@@ -53,8 +53,9 @@ class Session{
        $this->getListJoueur($db);
        for($i = 0; $i<count($this->listJoueur); $i++){
            if(($this->listJoueur)[$i] === 0)
-                return $i+1; 
+                return $i+1;
        }
+       return 3;
    }
 
    public static function getSessions($db){
